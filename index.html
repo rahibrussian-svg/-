@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Государственный образовательный портал</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f6;
+}
+
+/* Верхняя служебная панель */
+.topbar {
+    background: #1f2937;
+    color: white;
+    font-size: 13px;
+    padding: 6px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Шапка */
+.header {
+    background: white;
+    padding: 20px;
+    border-bottom: 3px solid #0a2e63;
+}
+
+.header h1 {
+    margin: 0;
+    color: #0a2e63;
+    font-size: 22px;
+}
+
+.nav {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* Основной блок */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #0a2e63;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #0a2e63;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #081f45;
+}
+
+.result-card {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fafafa;
+    display: none;
+}
+
+.status {
+    margin-top: 15px;
+    padding: 10px;
+    background: #e6f4ea;
+    color: #1e7e34;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<span>Электронное правительство</span>
+<span>RU | KZ</span>
+</div>
+
+<div class="header">
+<h1>Министерство образования Республики</h1>
+<div class="nav">
+Главная / Образование / Проверка результатов ГИА
+</div>
+</div>
+
+<div class="container">
+<div class="section-title">Проверка подлинности документа</div>
+
+<label>Введите номер документа</label>
+<input type="text" id="docNumber" placeholder="Например: C05365646">
+
+<button onclick="showResult()">Проверить</button>
+
+<div class="result-card" id="resultBox">
+<h3>Результат государственной итоговой аттестации</h3>
+<p><strong>ФИО:</strong> Маммадли Рахиб Шахаддин оглы</p>
+<p><strong>Предмет:</strong> Русский язык</p>
+<p><strong>Итоговая оценка:</strong> 4</p>
+<p><strong>Номер документа:</strong> C05365646</p>
+<p><strong>Дата выдачи:</strong> 25.06.2026</p>
+
+<div class="status">
+✔ Документ действителен. Подлинность подтверждена.
+</div>
+</div>
+</div>
+
+<div class="footer">
+© 2026 Государственный образовательный портал  
+Все права защищены.
+</div>
+
+<script>
+function showResult() {
+    const number = document.getElementById("docNumber").value;
+    const resultBox = document.getElementById("resultBox");
+
+    if(number === "C05365646") {
+        resultBox.style.display = "block";
+    } else {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "<p style='color:red;font-weight:bold;'>Документ не найден в базе данных.</p>";
+    }
+}
+</script>
+
+</body>
+</html>
